@@ -7,15 +7,17 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 /**
- * An example mixin using SpongePowered's Mixin library
+ * An example Mixin using SpongePowered's Mixin library
  *
- * @see Inject
  * @see Mixin
+ * @see Inject
  */
 @Mixin(Minecraft.class)
 public class MinecraftMixin {
+
     @Inject(method = "startGame", at = @At(value = "HEAD"))
-    private void onStartGame(CallbackInfo ci) {
-        System.out.println("This is a message from an example mod!");
+    private void examplemod$onStartGame(CallbackInfo ci) {
+        System.out.println("This is a message from the example mod!");
     }
+
 }

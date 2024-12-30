@@ -1,33 +1,39 @@
 package org.polyfrost.example;
 
 import org.polyfrost.example.command.ExampleCommand;
-import org.polyfrost.example.config.TestConfig;
-import cc.polyfrost.oneconfig.events.event.InitializationEvent;
+import org.polyfrost.example.config.ExampleConfig;
 import net.minecraftforge.fml.common.Mod;
-import cc.polyfrost.oneconfig.utils.commands.CommandManager;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import org.polyfrost.oneconfig.api.commands.v1.CommandManager;
 
 /**
- * The entrypoint of the Example Mod that initializes it.
+ * The entrypoint of the Example Mod which initializes it.
+ * This is what is run when the game is started and typically how your mod will set up its functionality.
  *
  * @see Mod
- * @see InitializationEvent
  */
-@Mod(modid = ExampleMod.MODID, name = ExampleMod.NAME, version = ExampleMod.VERSION)
+@Mod(modid = ExampleMod.ID, name = ExampleMod.NAME, version = ExampleMod.VERSION)
 public class ExampleMod {
 
-    // Sets the variables from `gradle.properties`. See the `blossom` config in `build.gradle.kts`.
-    public static final String MODID = "@ID@";
-    public static final String NAME = "@NAME@";
-    public static final String VERSION = "@VER@";
-    @Mod.Instance(MODID)
+    // Sets the variables from `gradle.properties`. Depends on the `bloom` DGT plugin.
+    public static final String ID = "@MOD_ID@";
+    public static final String NAME = "@MOD_NAME@";
+    public static final String VERSION = "@MOD_VERSION@";
+
+    @Mod.Instance(ID)
     public static ExampleMod INSTANCE; // Adds the instance of the mod, so we can access other variables.
-    public static TestConfig config;
+
+    private static ExampleConfig config;
 
     // Register the config and commands.
     @Mod.EventHandler
     public void onInit(FMLInitializationEvent event) {
-        config = new TestConfig();
-        CommandManager.INSTANCE.registerCommand(new ExampleCommand());
+        config = new ExampleConfig();
+        CommandManager.registerCommand(new ExampleCommand());
     }
+
+    public static ExampleConfig getConfig() {
+        return config;
+    }
+
 }

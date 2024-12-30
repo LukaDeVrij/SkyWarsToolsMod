@@ -12,7 +12,7 @@ import cc.polyfrost.oneconfig.utils.commands.annotations.Main;
  * @see Main
  * @see ExampleMod
  */
-@Command(value = ExampleMod.MODID, description = "Access the " + ExampleMod.NAME + " GUI.")
+@Command(value = ExampleMod.ID, description = "Access the " + ExampleMod.NAME + " GUI.")
 public class ExampleCommand {
     @Main
     private void handle() {
