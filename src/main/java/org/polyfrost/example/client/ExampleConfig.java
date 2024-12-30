@@ -8,7 +8,7 @@ import org.polyfrost.oneconfig.api.config.v1.annotations.Switch;
 
 /**
  * The main Config entrypoint that extends the Config type and initializes your config options.
- * See <a href="https://docs.polyfrost.cc/oneconfig/config/adding-options">this link</a> for more config Options
+ * See <a href="https://docsv1.polyfrost.org/configuration/available-options">this link</a> for more config Options
  */
 public class ExampleConfig extends Config {
 
