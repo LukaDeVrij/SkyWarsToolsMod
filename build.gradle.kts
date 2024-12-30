@@ -42,20 +42,13 @@ toolkitLoomHelper {
         // Configures the Mixin tweaker if we are building for Forge.
         useForgeMixin(modData.id)
     }
-
-    // Sets up the KotlinForForge library for Forge 1.16.5+ and NeoForge.
-    if (mcData.isForgeLike && mcData.version >= MinecraftVersion.VERSION_1_16_5) {
-        useKotlinForForge()
-    }
 }
 
 dependencies {
     // Add Fabric Language Kotlin and (Legacy) Fabric API as dependencies (these are both optional but are particularly useful).
     if (mcData.isFabric) {
-        modImplementation("net.fabricmc:fabric-language-kotlin:${mcData.dependencies.fabric.fabricLanguageKotlinVersion}")
-
         if (mcData.isLegacyFabric) {
-            // 1.8.9 - 1.12.2
+            // 1.8.9 - 1.13
             modImplementation("net.legacyfabric.legacy-fabric-api:legacy-fabric-api:${mcData.dependencies.legacyFabric.legacyFabricApiVersion}")
         } else {
             // 1.16.5+
