@@ -48,3 +48,18 @@ toolkitLoomHelper {
         useKotlinForForge()
     }
 }
+
+dependencies {
+    // Add Fabric Language Kotlin and (Legacy) Fabric API as dependencies (these are both optional but are particularly useful).
+    if (mcData.isFabric) {
+        modImplementation("net.fabricmc:fabric-language-kotlin:${mcData.dependencies.fabric.fabricLanguageKotlinVersion}")
+
+        if (mcData.isLegacyFabric) {
+            // 1.8.9 - 1.12.2
+            modImplementation("net.legacyfabric.legacy-fabric-api:legacy-fabric-api:${mcData.dependencies.legacyFabric.legacyFabricApiVersion}")
+        } else {
+            // 1.16.5+
+            modImplementation("net.fabricmc.fabric-api:fabric-api:${mcData.dependencies.fabric.fabricApiVersion}")
+        }
+    }
+}

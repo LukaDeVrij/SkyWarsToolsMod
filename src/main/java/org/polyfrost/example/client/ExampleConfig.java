@@ -1,6 +1,6 @@
-package org.polyfrost.example.config;
+package org.polyfrost.example.client;
 
-import org.polyfrost.example.ExampleMod;
+import org.polyfrost.example.ExampleConstants;
 import org.polyfrost.oneconfig.api.config.v1.Config;
 import org.polyfrost.oneconfig.api.config.v1.annotations.Dropdown;
 import org.polyfrost.oneconfig.api.config.v1.annotations.Slider;
@@ -29,7 +29,7 @@ public class ExampleConfig extends Config {
     public static int exampleDropdown = 1; // Default option (in this case "Option 2")
 
     public ExampleConfig() {
-        super(ExampleMod.ID + ".json", ExampleMod.NAME, Category.OTHER); // TODO: Change your category here.
+        super(ExampleConstants.ID + ".json", ExampleConstants.NAME, Category.OTHER); // TODO: Change your category here.
     }
 
 }

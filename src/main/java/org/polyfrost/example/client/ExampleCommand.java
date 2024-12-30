@@ -1,6 +1,6 @@
-package org.polyfrost.example.command;
+package org.polyfrost.example.client;
 
-import org.polyfrost.example.ExampleMod;
+import org.polyfrost.example.ExampleConstants;
 import org.polyfrost.oneconfig.api.commands.v1.factories.annotated.Command;
 import org.polyfrost.oneconfig.utils.v1.dsl.ScreensKt;
 
@@ -9,14 +9,14 @@ import org.polyfrost.oneconfig.utils.v1.dsl.ScreensKt;
  * Registered in ExampleMod.java with `CommandManager.INSTANCE.registerCommand(new ExampleCommand());`
  *
  * @see Command
- * @see ExampleMod
+ * @see ExampleClient
  */
-@Command(value = ExampleMod.ID, description = "Access the " + ExampleMod.NAME + " GUI.")
+@Command(value = ExampleConstants.ID, description = "Access the " + ExampleConstants.NAME + " GUI.")
 public class ExampleCommand {
 
     @Command
     private void main() {
-        ScreensKt.openUI(ExampleMod.getConfig());
+        ScreensKt.openUI(ExampleClient.INSTANCE.getConfig());
     }
 
 }

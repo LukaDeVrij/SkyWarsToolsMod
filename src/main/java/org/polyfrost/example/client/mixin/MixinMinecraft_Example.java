@@ -1,4 +1,4 @@
-package org.polyfrost.example.mixin;
+package org.polyfrost.example.client.mixin;
 
 import net.minecraft.client.Minecraft;
 import org.spongepowered.asm.mixin.Mixin;
@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
  * @see Inject
  */
 @Mixin(Minecraft.class)
-public class MinecraftMixin {
+public class MixinMinecraft_Example {
 
     @Inject(method = "startGame", at = @At(value = "HEAD"))
     private void examplemod$onStartGame(CallbackInfo ci) {
