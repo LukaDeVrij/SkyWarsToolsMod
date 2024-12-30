@@ -15,7 +15,7 @@ import org.polyfrost.oneconfig.utils.v1.dsl.ScreensKt;
 public class ExampleCommand {
 
     @Command
-    private void handle() {
+    private void main() {
         ScreensKt.openUI(ExampleMod.getConfig());
     }
 
