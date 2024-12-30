@@ -1,21 +1,22 @@
 package org.polyfrost.example.command;
 
 import org.polyfrost.example.ExampleMod;
-import cc.polyfrost.oneconfig.utils.commands.annotations.Command;
-import cc.polyfrost.oneconfig.utils.commands.annotations.Main;
+import org.polyfrost.oneconfig.api.commands.v1.factories.annotated.Command;
+import org.polyfrost.oneconfig.utils.v1.dsl.ScreensKt;
 
 /**
  * An example command implementing the Command api of OneConfig.
  * Registered in ExampleMod.java with `CommandManager.INSTANCE.registerCommand(new ExampleCommand());`
  *
  * @see Command
- * @see Main
  * @see ExampleMod
  */
 @Command(value = ExampleMod.ID, description = "Access the " + ExampleMod.NAME + " GUI.")
 public class ExampleCommand {
-    @Main
+
+    @Command
     private void handle() {
-        ExampleMod.INSTANCE.config.openGui();
+        ScreensKt.openUI(ExampleMod.getConfig());
     }
+
 }
