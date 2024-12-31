@@ -37,4 +37,6 @@ preprocess {
             }
         }
     }
+
+    strictExtraMappings.set(true)
 }

@@ -1,7 +1,6 @@
 @file:Suppress("UnstableApiUsage", "PropertyName")
 
 import dev.deftu.gradle.utils.GameSide
-import dev.deftu.gradle.utils.MinecraftVersion
 
 plugins {
     java
@@ -17,8 +16,8 @@ plugins {
 
 toolkitLoomHelper {
     useOneConfig {
-        version = "1.0.0-alpha.47"
-        loaderVersion = "1.1.0-alpha.34"
+        version = "1.0.0-alpha.49"
+        loaderVersion = "1.1.0-alpha.35"
 
         usePolyMixin = true
         polyMixinVersion = "0.8.4+build.2"
@@ -29,6 +28,8 @@ toolkitLoomHelper {
             +module
         }
     }
+    useDevAuth("1.2.1")
+    useMixinExtras("0.4.1")
 
     // Turns off the server-side run configs, as we're building a client-sided mod.
     disableRunConfigs(GameSide.SERVER)
@@ -45,7 +46,7 @@ toolkitLoomHelper {
 }
 
 dependencies {
-    // Add Fabric Language Kotlin and (Legacy) Fabric API as dependencies (these are both optional but are particularly useful).
+    // Add (Legacy) Fabric API as dependencies (these are both optional but are particularly useful).
     if (mcData.isFabric) {
         if (mcData.isLegacyFabric) {
             // 1.8.9 - 1.13
