@@ -5,7 +5,7 @@
     "name": "${mod_name}",
     "description": "${mod_description}",
     "authors": [
-        "Polyfrost"
+        "Your Name"
     ],
     "environment": "*",
     "entrypoints": {
