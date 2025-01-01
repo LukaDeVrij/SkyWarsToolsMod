@@ -23,17 +23,10 @@ public class ExampleMod {
     @Mod.Instance(ID)
     public static ExampleMod INSTANCE; // Adds the instance of the mod, so we can access other variables.
 
-    private static ExampleConfig config;
-
     // Register the config and commands.
     @Mod.EventHandler
     public void onInit(FMLInitializationEvent event) {
-        config = new ExampleConfig();
+        ExampleConfig.INSTANCE.preload();
         CommandManager.registerCommand(new ExampleCommand());
     }
-
-    public static ExampleConfig getConfig() {
-        return config;
-    }
-
 }
