@@ -6,17 +6,9 @@ public class ExampleClient {
 
     public static final ExampleClient INSTANCE = new ExampleClient();
 
-    private ExampleConfig config;
-
     public void initialize() {
-        System.out.println("Initializing Example Client");
-
-        config = new ExampleConfig();
+        ExampleConfig.INSTANCE.preload();
         CommandManager.registerCommand(new ExampleCommand());
-    }
-
-    public ExampleConfig getConfig() {
-        return config;
     }
 
 }
