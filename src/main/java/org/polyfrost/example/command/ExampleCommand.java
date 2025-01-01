@@ -1,6 +1,7 @@
 package org.polyfrost.example.command;
 
 import org.polyfrost.example.ExampleMod;
+import org.polyfrost.example.config.ExampleConfig;
 import org.polyfrost.oneconfig.api.commands.v1.factories.annotated.Command;
 import org.polyfrost.oneconfig.utils.v1.dsl.ScreensKt;
 
@@ -16,7 +17,7 @@ public class ExampleCommand {
 
     @Command
     private void main() {
-        ScreensKt.openUI(ExampleMod.getConfig());
+        ScreensKt.openUI(ExampleConfig.INSTANCE);
     }
 
 }

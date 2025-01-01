@@ -20,8 +20,6 @@ public class ExampleMod implements ClientModInitializer {
 
     public static ExampleMod INSTANCE; // Adds the instance of the mod, so we can access other variables.
 
-    private static ExampleConfig config;
-
     public ExampleMod() {
         INSTANCE = this;
     }
@@ -29,11 +27,7 @@ public class ExampleMod implements ClientModInitializer {
     // Register the config and commands.
     @Override
     public void onInitializeClient() {
-        config = new ExampleConfig();
+        ExampleConfig.INSTANCE.preload();
         CommandManager.registerCommand(new ExampleCommand());
-    }
-
-    public static ExampleConfig getConfig() {
-        return config;
     }
 }
