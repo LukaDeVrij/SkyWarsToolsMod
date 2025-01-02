@@ -16,7 +16,7 @@ public class ExampleCommand {
 
     @Command
     private void main() {
-        ScreensKt.openUI(ExampleClient.INSTANCE.getConfig());
+        ScreensKt.openUI(ExampleConfig.INSTANCE);
     }
 
 }

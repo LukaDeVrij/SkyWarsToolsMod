@@ -28,6 +28,8 @@ public class ExampleConfig extends Config {
     )
     public static int exampleDropdown = 1; // Default option (in this case "Option 2")
 
+    public static final ExampleConfig INSTANCE = new ExampleConfig(); // The instance of the Config.
+
     public ExampleConfig() {
         super(ExampleConstants.ID + ".json", ExampleConstants.NAME, Category.OTHER); // TODO: Change your category here.
     }

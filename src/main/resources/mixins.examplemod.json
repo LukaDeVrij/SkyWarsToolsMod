@@ -1,6 +1,6 @@
 {
   "compatibilityLevel": "${java_version}",
-  "minVersion": "0.7",
+  "minVersion": "0.8",
   "package": "org.polyfrost.example.client.mixin",
   "refmap": "mixins.${mod_id}.refmap.json",
   "injectors": {

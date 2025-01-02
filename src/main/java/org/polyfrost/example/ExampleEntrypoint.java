@@ -33,7 +33,7 @@ import org.polyfrost.example.server.ExampleServer;
 //$$ import org.polyfrost.example.ExampleConstants;
 //$$
 //#if MC >= 1.16.5
-//$$ @Mod(ModTemplateConstants.ID)
+//$$ @Mod(ExampleConstants.ID)
 //#else
 //$$ @Mod(modid = ExampleConstants.ID, version = ExampleConstants.VERSION)
 //#endif
@@ -86,7 +86,13 @@ public class ExampleEntrypoint
             //#endif
     ) {
         //#if FORGE && MC <= 1.12.2
-        //$$ if (!event.side.isClient) {
+        //$$ if (!event
+        //#if MC <= 1.8.9
+        //$$ .side.isClient
+        //#else
+        //$$ .getSide().isClient()
+        //#endif
+        //$$ ) {
         //$$     return;
         //$$ }
         //#endif
@@ -109,7 +115,13 @@ public class ExampleEntrypoint
             //#endif
     ) {
         //#if FORGE && MC <= 1.12.2
-        //$$ if (!event.side.isServer) {
+        //$$ if (!event.
+        //#if MC <= 1.8.9
+        //$$ side.isServer
+        //#else
+        //$$ getSide().isServer()
+        //#endif
+        //$$ ) {
         //$$     return;
         //$$ }
         //#endif
@@ -119,9 +131,9 @@ public class ExampleEntrypoint
 
     //#if FORGE-LIKE && MC >= 1.16.5
     //$$ private void setupForgeEvents(IEventBus modEventBus) {
-    //$$     modEventBus.addListener(this::onInitialize)
-    //$$     modEventBus.addListener(this::onInitializeClient)
-    //$$     modEventBus.addListener(this::onInitializeServer)
+    //$$     modEventBus.addListener(this::onInitialize);
+    //$$     modEventBus.addListener(this::onInitializeClient);
+    //$$     modEventBus.addListener(this::onInitializeServer);
     //$$ }
     //#endif
 
