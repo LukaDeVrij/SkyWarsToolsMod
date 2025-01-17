@@ -12,7 +12,7 @@
         "client": [
             {
                 "adapter": "kotlin",
-                "value": "org.polyfrost.example.ExampleMod"
+                "value": "org.polyfrost.example.client.ExampleClient"
             }
         ]
     },
