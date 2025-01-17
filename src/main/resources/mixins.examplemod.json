@@ -7,7 +7,7 @@
     "maxShiftBy": 5
   },
   "client": [
-    "MixinMinecraft_Example"
+      "Mixin_Minecraft_Example"
   ],
   "verbose": true
 }

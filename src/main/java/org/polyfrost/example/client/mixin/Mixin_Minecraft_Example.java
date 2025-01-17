@@ -13,7 +13,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
  * @see Inject
  */
 @Mixin(Minecraft.class)
-public class MixinMinecraft_Example {
+// Class naming convention: Mixin_[OriginalClassName]_[SimplifiedDescription]
+public class Mixin_Minecraft_Example {
 
     @Inject(method = "<init>", at = @At(value = "RETURN"))
     private void examplemod$onStartGame(CallbackInfo ci) {
