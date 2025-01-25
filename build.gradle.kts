@@ -5,7 +5,7 @@ import dev.deftu.gradle.utils.GameSide
 plugins {
     java
     kotlin("jvm") version("2.0.0")
-    val dgtVersion = "2.17.0"
+    val dgtVersion = "2.22.0"
     id("dev.deftu.gradle.tools") version(dgtVersion) // Applies several configurations to things such as the Java version, project name/version, etc.
     id("dev.deftu.gradle.tools.resources") version(dgtVersion) // Applies resource processing so that we can replace tokens, such as our mod name/version, in our resources.
     id("dev.deftu.gradle.tools.bloom") version(dgtVersion) // Applies the Bloom plugin, which allows us to replace tokens in our source files, such as being able to use `@MOD_VERSION` in our source files.
@@ -16,8 +16,8 @@ plugins {
 
 toolkitLoomHelper {
     useOneConfig {
-        version = "1.0.0-alpha.55"
-        loaderVersion = "1.1.0-alpha.38"
+        version = "1.0.0-alpha.58"
+        loaderVersion = "1.1.0-alpha.44"
 
         usePolyMixin = true
         polyMixinVersion = "0.8.4+build.2"
