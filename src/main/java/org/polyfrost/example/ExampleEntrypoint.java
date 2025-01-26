@@ -14,7 +14,6 @@ package org.polyfrost.example;
 //$$ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 //#else
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 //#endif
 //#elseif NEOFORGE
@@ -35,7 +34,7 @@ import org.polyfrost.example.server.ExampleServer;
 //#if MC >= 1.16.5
 //$$ @Mod(ExampleConstants.ID)
 //#else
-//$$ @Mod(modid = ExampleConstants.ID, version = ExampleConstants.VERSION)
+@Mod(modid = ExampleConstants.ID, version = ExampleConstants.VERSION)
 //#endif
 //#endif
 public class ExampleEntrypoint
