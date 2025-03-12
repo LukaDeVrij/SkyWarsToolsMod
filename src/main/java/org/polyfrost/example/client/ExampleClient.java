@@ -14,7 +14,7 @@ public class ExampleClient {
     @Mod.EventHandler
     public void onInit(FMLInitializationEvent event) {
         ExampleConfig.INSTANCE.preload();
-        CommandManager.registerCommand(new ExampleCommand());
+        CommandManager.register(new ExampleCommand());
     }
 
 }

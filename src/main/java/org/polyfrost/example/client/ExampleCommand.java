@@ -11,7 +11,7 @@ import org.polyfrost.oneconfig.utils.v1.dsl.ScreensKt;
  * @see Command
  * @see ExampleClient
  */
-@Command(value = ExampleConstants.ID, description = "Access the " + ExampleConstants.NAME + " GUI.")
+@Command(ExampleConstants.ID)
 public class ExampleCommand {
 
     @Command
