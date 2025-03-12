@@ -7,7 +7,7 @@ object ExampleClient : ClientModInitializer {
 
     override fun onInitializeClient() {
         ExampleConfig.preload()
-        CommandManager.registerCommand(ExampleCommand)
+        CommandManager.register(ExampleCommand)
     }
 
 }
