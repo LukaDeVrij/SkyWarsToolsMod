@@ -6,7 +6,7 @@ object ExampleClient {
 
     fun initialize() {
         ExampleConfig.preload()
-        CommandManager.registerCommand(ExampleCommand)
+        CommandManager.register(ExampleCommand)
     }
 
 }
