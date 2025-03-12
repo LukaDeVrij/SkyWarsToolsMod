@@ -14,7 +14,7 @@ public class ExampleClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         ExampleConfig.INSTANCE.preload();
-        CommandManager.registerCommand(new ExampleCommand());
+        CommandManager.register(new ExampleCommand());
     }
 
 }
