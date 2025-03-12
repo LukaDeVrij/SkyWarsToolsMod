@@ -8,7 +8,7 @@ public class ExampleClient {
 
     public void initialize() {
         ExampleConfig.INSTANCE.preload();
-        CommandManager.registerCommand(new ExampleCommand());
+        CommandManager.register(new ExampleCommand());
     }
 
 }
