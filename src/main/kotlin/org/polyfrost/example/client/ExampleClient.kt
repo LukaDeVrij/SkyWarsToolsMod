@@ -10,7 +10,7 @@ object ExampleClient {
     @Mod.EventHandler
     fun initialize() {
         ExampleConfig.preload()
-        CommandManager.registerCommand(ExampleCommand)
+        CommandManager.register(ExampleCommand)
     }
 
 }
