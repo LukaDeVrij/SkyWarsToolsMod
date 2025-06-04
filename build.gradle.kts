@@ -16,8 +16,8 @@ plugins {
 
 toolkitLoomHelper {
     useOneConfig {
-        version = "1.0.0-alpha.70"
-        loaderVersion = "1.1.0-alpha.44"
+        version = "1.0.0-alpha.106"
+        loaderVersion = "1.1.0-alpha.46"
 
         usePolyMixin = true
         polyMixinVersion = "0.8.4+build.2"
@@ -36,9 +36,7 @@ toolkitLoomHelper {
     disableRunConfigs(GameSide.SERVER)
 
     // Defines the name of the Mixin refmap, which is used to map the Mixin classes to the obfuscated Minecraft classes.
-    if (!mcData.isNeoForge) {
-        useMixinRefMap(modData.id)
-    }
+    useMixinRefMap(modData.id)
 
     if (mcData.isForge) {
         // Configures the Mixin tweaker if we are building for Forge.
