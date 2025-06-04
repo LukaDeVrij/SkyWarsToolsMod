@@ -36,12 +36,5 @@ toolkitLoomHelper {
     disableRunConfigs(GameSide.SERVER)
 
     // Defines the name of the Mixin refmap, which is used to map the Mixin classes to the obfuscated Minecraft classes.
-    if (!mcData.isNeoForge) {
-        useMixinRefMap(modData.id)
-    }
-
-    if (mcData.isForge) {
-        // Configures the Mixin tweaker if we are building for Forge.
-        useForgeMixin(modData.id)
-    }
+    useMixinRefMap(modData.id)
 }
