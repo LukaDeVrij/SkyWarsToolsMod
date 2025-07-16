@@ -55,6 +55,8 @@ class ExampleEntrypoint
 
     //#if FABRIC
     //$$ override
+    //#elseif FORGE && MC <= 1.12.2
+    @Mod.EventHandler
     //#endif
     fun onInitialize(
         //#if FORGE-LIKE
@@ -70,6 +72,8 @@ class ExampleEntrypoint
 
     //#if FABRIC
     //$$ override
+    //#elseif FORGE && MC <= 1.12.2
+    @Mod.EventHandler
     //#endif
     fun onInitializeClient(
         //#if FORGE-LIKE
@@ -89,6 +93,8 @@ class ExampleEntrypoint
 
     //#if FABRIC
     //$$ override
+    //#elseif FORGE && MC <= 1.12.2
+    @Mod.EventHandler
     //#endif
     fun onInitializeServer(
         //#if FORGE-LIKE
