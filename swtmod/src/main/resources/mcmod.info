@@ -1,0 +1,16 @@
+[
+{
+  "modid": "skywarstools",
+  "name": "SkyWarsToolsMod",
+  "description": "Forge mod with SkyWarsTools utilities",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["LifelessNerd // Luka"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
