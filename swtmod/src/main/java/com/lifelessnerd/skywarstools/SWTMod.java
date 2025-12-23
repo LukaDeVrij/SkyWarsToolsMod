@@ -1,7 +1,9 @@
 package com.lifelessnerd.skywarstools;
 
+import cc.polyfrost.oneconfig.config.Config;
 import com.lifelessnerd.skywarstools.commands.ExampleCommand;
 import com.lifelessnerd.skywarstools.config.ConfigHandler;
+import com.lifelessnerd.skywarstools.config.MyConfig;
 import com.lifelessnerd.skywarstools.events.ExampleKeybindListener;
 import com.lifelessnerd.skywarstools.hud.LastGameExperience;
 import net.minecraftforge.client.ClientCommandHandler;
@@ -22,17 +24,20 @@ public class SWTMod { // select ExampleMod and hit shift+F6 to rename it
     public static final String MODNAME = "skywarstools";// the name of your mod
     public static final String VERSION = "0.1";           // the current version of your mod
 
+    public static MyConfig config;
+
     // this method is one entry point of you mod
     // it is called by forge when minecraft is starting
     // it is called before the other methods below
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-        // loads the config file from the disk
-        ConfigHandler.loadConfig(event.getSuggestedConfigurationFile());
+
     }
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
+
+        config = new MyConfig();
         // register your commands here
         ClientCommandHandler.instance.registerCommand(new ExampleCommand());
 

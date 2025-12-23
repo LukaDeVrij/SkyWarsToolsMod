@@ -1,5 +1,6 @@
 package com.lifelessnerd.skywarstools.events;
 
+import com.lifelessnerd.skywarstools.config.MyConfig;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.util.ChatComponentText;
@@ -24,6 +25,7 @@ public class ExampleKeybindListener {
         if (exampleKeybind.isPressed()) { // using isPressed() will return true once when the key is pressed
 
             Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText("The example keybind has been pressed"));
+            System.out.println("Bob: " + MyConfig.bob);
 
         } else if (exampleKeybind.isKeyDown()) { // using isKeyDown() will return true the whole time the key is held down
 
