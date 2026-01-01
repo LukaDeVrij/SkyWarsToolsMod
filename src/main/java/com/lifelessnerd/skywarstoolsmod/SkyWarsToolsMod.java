@@ -1,8 +1,10 @@
-package org.polyfrost.example;
+package com.lifelessnerd.skywarstoolsmod;
 
-import org.polyfrost.example.command.ExampleCommand;
-import org.polyfrost.example.config.TestConfig;
+import com.lifelessnerd.skywarstoolsmod.command.ExampleCommand;
+import com.lifelessnerd.skywarstoolsmod.config.TestConfig;
 import cc.polyfrost.oneconfig.events.event.InitializationEvent;
+import com.lifelessnerd.skywarstoolsmod.hud.LastGameExperience;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import cc.polyfrost.oneconfig.utils.commands.CommandManager;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -13,15 +15,15 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
  * @see Mod
  * @see InitializationEvent
  */
-@Mod(modid = ExampleMod.MODID, name = ExampleMod.NAME, version = ExampleMod.VERSION)
-public class ExampleMod {
+@Mod(modid = SkyWarsToolsMod.MODID, name = SkyWarsToolsMod.NAME, version = SkyWarsToolsMod.VERSION)
+public class SkyWarsToolsMod {
 
     // Sets the variables from `gradle.properties`. See the `blossom` config in `build.gradle.kts`.
     public static final String MODID = "@ID@";
     public static final String NAME = "@NAME@";
     public static final String VERSION = "@VER@";
     @Mod.Instance(MODID)
-    public static ExampleMod INSTANCE; // Adds the instance of the mod, so we can access other variables.
+    public static SkyWarsToolsMod INSTANCE; // Adds the instance of the mod, so we can access other variables.
     public static TestConfig config;
 
     // Register the config and commands.
@@ -29,5 +31,6 @@ public class ExampleMod {
     public void onInit(FMLInitializationEvent event) {
         config = new TestConfig();
         CommandManager.INSTANCE.registerCommand(new ExampleCommand());
+        MinecraftForge.EVENT_BUS.register(new LastGameExperience());
     }
 }
