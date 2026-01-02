@@ -1,7 +1,8 @@
 package com.lifelessnerd.skywarstoolsmod.config;
 
+import cc.polyfrost.oneconfig.config.annotations.Switch;
 import com.lifelessnerd.skywarstoolsmod.SkyWarsToolsMod;
-import com.lifelessnerd.skywarstoolsmod.hud.LastGameExperience;
+import com.lifelessnerd.skywarstoolsmod.hud.LastGameEXPHud;
 import cc.polyfrost.oneconfig.config.Config;
 import cc.polyfrost.oneconfig.config.annotations.HUD;
 import cc.polyfrost.oneconfig.config.data.Mod;
@@ -15,14 +16,13 @@ public class TestConfig extends Config {
     @HUD(
             name = "Example HUD"
     )
-    public LastGameExperience hud = new LastGameExperience();
-//
-//    @Switch(
-//            name = "Example Switch",
-//            size = OptionSize.SINGLE // Optional
-//    )
-//    public static boolean exampleSwitch = false; // The default value for the boolean Switch.
-//
+    public LastGameEXPHud lastGameEXPHud = new LastGameEXPHud();
+
+    @Switch(
+            name = "Only Show On Win/Death"
+    )
+    public static boolean onlyShowOnWinDeath = false; // The default value for the boolean Switch.
+
 //    @Slider(
 //            name = "Example Slider",
 //            min = 0f, max = 100f, // Minimum and maximum values for the slider.

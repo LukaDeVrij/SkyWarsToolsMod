@@ -3,7 +3,8 @@ package com.lifelessnerd.skywarstoolsmod;
 import com.lifelessnerd.skywarstoolsmod.command.ExampleCommand;
 import com.lifelessnerd.skywarstoolsmod.config.TestConfig;
 import cc.polyfrost.oneconfig.events.event.InitializationEvent;
-import com.lifelessnerd.skywarstoolsmod.hud.LastGameExperience;
+import com.lifelessnerd.skywarstoolsmod.events.LastGameEXPEvent;
+import com.lifelessnerd.skywarstoolsmod.hud.LastGameEXPHud;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import cc.polyfrost.oneconfig.utils.commands.CommandManager;
@@ -31,6 +32,6 @@ public class SkyWarsToolsMod {
     public void onInit(FMLInitializationEvent event) {
         config = new TestConfig();
         CommandManager.INSTANCE.registerCommand(new ExampleCommand());
-        MinecraftForge.EVENT_BUS.register(new LastGameExperience());
+        MinecraftForge.EVENT_BUS.register(new LastGameEXPEvent());
     }
 }
