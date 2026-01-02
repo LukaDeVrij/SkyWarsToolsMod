@@ -23,22 +23,11 @@ public class TestConfig extends Config {
     )
     public static boolean onlyShowOnWinDeath = false; // The default value for the boolean Switch.
 
-//    @Slider(
-//            name = "Example Slider",
-//            min = 0f, max = 100f, // Minimum and maximum values for the slider.
-//            step = 10 // The amount of steps that the slider should have.
-//    )
-//    public static float exampleSlider = 50f; // The default value for the float Slider.
-//
-//    @Dropdown(
-//            name = "Example Dropdown", // Name of the Dropdown
-//            options = {"Option 1", "Option 2", "Option 3", "Option 4"} // Options available.
-//    )
-//    public static int exampleDropdown = 1; // Default option (in this case "Option 2")
-
     public TestConfig() {
         super(new Mod(SkyWarsToolsMod.NAME, ModType.UTIL_QOL), SkyWarsToolsMod.MODID + ".json");
         initialize();
     }
+
+
 }
 

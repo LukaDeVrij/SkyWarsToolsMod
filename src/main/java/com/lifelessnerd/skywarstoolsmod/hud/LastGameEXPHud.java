@@ -5,20 +5,16 @@ import com.lifelessnerd.skywarstoolsmod.events.LastGameEXPEvent;
 
 public class LastGameEXPHud extends SingleTextHud {
 
-    private boolean lastEnabledState = true;
-
     public LastGameEXPHud() {
         super("§6EXP Last Game", true);
     }
 
+    public void setVisibility(boolean visible){
+        this.enabled = visible;
+    }
+
     @Override
     protected String getText(boolean example) {
-        // TODO this is stupid - we cannot set .enabled because when that becomes false getText is never run again
-        if (LastGameEXPEvent.shouldBeVisible()) {
-            this.scale = 0;
-        } else {
-            this.scale = 1;
-        }
         return "§f" + LastGameEXPEvent.getLastXP();
     }
 }
