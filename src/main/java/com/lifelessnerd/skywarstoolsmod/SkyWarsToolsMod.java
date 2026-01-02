@@ -1,10 +1,10 @@
 package com.lifelessnerd.skywarstoolsmod;
 
+import cc.polyfrost.oneconfig.utils.hypixel.HypixelUtils;
 import com.lifelessnerd.skywarstoolsmod.command.ExampleCommand;
-import com.lifelessnerd.skywarstoolsmod.config.TestConfig;
+import com.lifelessnerd.skywarstoolsmod.config.SWTConfig;
 import cc.polyfrost.oneconfig.events.event.InitializationEvent;
 import com.lifelessnerd.skywarstoolsmod.events.LastGameEXPEvent;
-import com.lifelessnerd.skywarstoolsmod.hud.LastGameEXPHud;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import cc.polyfrost.oneconfig.utils.commands.CommandManager;
@@ -25,13 +25,15 @@ public class SkyWarsToolsMod {
     public static final String VERSION = "@VER@";
     @Mod.Instance(MODID)
     public static SkyWarsToolsMod INSTANCE; // Adds the instance of the mod, so we can access other variables.
-    public static TestConfig config;
+    public static SWTConfig config;
 
     // Register the config and commands.
     @Mod.EventHandler
     public void onInit(FMLInitializationEvent event) {
-        config = new TestConfig();
+        config = new SWTConfig();
         CommandManager.INSTANCE.registerCommand(new ExampleCommand());
         MinecraftForge.EVENT_BUS.register(new LastGameEXPEvent());
+
+        HypixelUtils.INSTANCE.initialize();
     }
 }
