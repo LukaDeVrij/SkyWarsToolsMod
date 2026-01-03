@@ -1,7 +1,7 @@
 package com.lifelessnerd.skywarstoolsmod.events;
 
-import cc.polyfrost.oneconfig.utils.hypixel.HypixelUtils;
-import com.lifelessnerd.skywarstoolsmod.SkyWarsToolsMod;
+import com.lifelessnerd.skywarstoolsmod.config.SWTConfig;
+import com.lifelessnerd.skywarstoolsmod.hud.LastGameEXP;
 import com.lifelessnerd.skywarstoolsmod.utils.MessagePattern;
 import net.minecraftforge.client.event.ClientChatReceivedEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -33,7 +33,7 @@ public class LastGameEXPEvent {
     @SubscribeEvent
     public void onGameEndChat(ClientChatReceivedEvent event) {
         if (MessagePattern.isGameEndMessage(event.message)) {
-            SkyWarsToolsMod.config.lastGameEXPHud.setVisibility(false);
+            SWTConfig.lastGameEXP.lastGameEXPHud.setVisibility(true);
         }
     }
 
@@ -41,7 +41,10 @@ public class LastGameEXPEvent {
     public void onResetChat(ClientChatReceivedEvent event) {
         if (MessagePattern.isValidResetMessage(event.message)) {
             lastXP = 0;
-            SkyWarsToolsMod.config.lastGameEXPHud.setVisibility(true);
+            if (SWTConfig.lastGameEXP.lastGameEXPHud.onlyShowOnWinDeath) {
+                SWTConfig.lastGameEXP.lastGameEXPHud.setVisibility(false);
+            }
+
         }
     }
 }

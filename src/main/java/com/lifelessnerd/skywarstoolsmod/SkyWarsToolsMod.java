@@ -33,7 +33,6 @@ public class SkyWarsToolsMod {
         config = new SWTConfig();
         CommandManager.INSTANCE.registerCommand(new ExampleCommand());
         MinecraftForge.EVENT_BUS.register(new LastGameEXPEvent());
-
         HypixelUtils.INSTANCE.initialize();
     }
 }
