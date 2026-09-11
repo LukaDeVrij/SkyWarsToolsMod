@@ -31,7 +31,7 @@ public class SkyWarsResponse {
         public int losses;
         public int kills;
         public int deaths;
-        public int skywars_experience;
+        public double skywars_experience;
 
         public Stats(){}
 

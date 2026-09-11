@@ -4,6 +4,7 @@ import net.hypixel.modapi.packet.impl.clientbound.event.ClientboundLocationPacke
 import net.minecraftforge.client.event.ClientChatReceivedEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import org.devlukadev.skywarstoolsmod.SkyWarsToolsMod;
+import org.devlukadev.skywarstoolsmod.utils.ChatLib;
 import org.devlukadev.skywarstoolsmod.utils.LocationUtil;
 
 import java.util.List;
@@ -31,7 +32,9 @@ public class TabRowRenderContext {
         if (!SkyWarsToolsMod.config.levelsEnabled) return;
         if (!LocationUtil.isInSkyWars()) return;
         Matcher matcher = TEAMS_CAGE_TP.matcher(event.message.getFormattedText());
-        if (matcher.find()) max = 0;
+        if (matcher.find()) {
+            max = 0;
+        };
     }
 
 }

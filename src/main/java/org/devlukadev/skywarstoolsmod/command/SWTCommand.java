@@ -52,72 +52,65 @@ public class SWTCommand {
         }
     }
 
-    @SubCommandGroup(value = "stats")
-    private static class StatsCommandGroup {
-        @Main
-        private void Main() {
-            ChatLib.chat("Usage: /swt stats <overall|names|mining>");
-        }
-
-        @SubCommand(description = "Get overall stats")
-        private void overall(GameProfile player) {
-            String url = SkyWarsToolsMod.SWT_API + "/overall?player=" + player.getName();
-            System.out.println("fetching " + url);
-            Fetch.getJsonAsync(url, OverallResponse.class)
-                    .thenAccept(response -> {
-                        Minecraft.getMinecraft().addScheduledTask(() -> {
-                            if (response != null) {
-                                StatsPrint.formatOverallData(response);
-                            } else {
-                                ChatLib.chat("&cCould not get those stats...");
-                            }
-                        });
-
-                    })
-                    .exceptionally(ex -> {
-                        System.err.println("Fetch failed: " + ex.getMessage());
-                        return null;
-                    });
-
-
-        }
-
-        @SubCommand(description = "Fetches past usernames of the player")
-        private void names(GameProfile player) {
-            String url = SkyWarsToolsMod.SWT_API + "/snapshotKeys?player=" + player.getName();
-            System.out.println("fetching " + url);
-            Fetch.getJsonAsync(url, NamesResponse.class)
-                    .thenAccept(response -> Minecraft.getMinecraft().addScheduledTask(() -> {
-                        if (response == null || response.player == null) {
-                            ChatLib.chat("&cPlayer does not exist or is nicked.");
-                            return;
+    @SubCommand(description = "Get overall stats")
+    private void stats(GameProfile player) {
+        String url = SkyWarsToolsMod.SWT_API + "/overall?player=" + player.getName();
+        System.out.println("fetching " + url);
+        Fetch.getJsonAsync(url, OverallResponse.class)
+                .thenAccept(response -> {
+                    Minecraft.getMinecraft().addScheduledTask(() -> {
+                        if (response != null) {
+                            StatsPrint.formatOverallData(response);
+                        } else {
+                            ChatLib.chat("&cCould not get those stats...");
                         }
-                        StatsPrint.formatNamesData(response);
-                    }))
-                    .exceptionally(ex -> {
-                        System.err.println("Fetch failed: " + ex.getMessage());
-                        return null;
                     });
-        }
 
-        @SubCommand(description = "Fetches mining risk of the player")
-        private void mining(GameProfile player) {
-            String url = SkyWarsToolsMod.SWT_API + "/overall?player=" + player.getName();
-            System.out.println("fetching " + url);
-            Fetch.getJsonAsync(url, OverallResponse.class)
-                    .thenAccept(response -> Minecraft.getMinecraft().addScheduledTask(() -> {
-                        if (response == null || response.player == null) {
-                            ChatLib.chat("&cPlayer does not exist or is nicked.");
-                            return;
-                        }
-                        StatsPrint.formatMiningData(response);
-                    }))
-                    .exceptionally(ex -> {
-                        System.err.println("Fetch failed: " + ex.getMessage());
-                        return null;
-                    });
-        }
+                })
+                .exceptionally(ex -> {
+                    System.err.println("Fetch failed: " + ex.getMessage());
+                    return null;
+                });
+
+
     }
+
+    @SubCommand(description = "Fetches past usernames of the player")
+    private void names(GameProfile player) {
+        String url = SkyWarsToolsMod.SWT_API + "/snapshotKeys?player=" + player.getName();
+        System.out.println("fetching " + url);
+        Fetch.getJsonAsync(url, NamesResponse.class)
+                .thenAccept(response -> Minecraft.getMinecraft().addScheduledTask(() -> {
+                    if (response == null || response.player == null) {
+                        ChatLib.chat("&cPlayer does not exist or is nicked.");
+                        return;
+                    }
+                    StatsPrint.formatNamesData(response);
+                }))
+                .exceptionally(ex -> {
+                    System.err.println("Fetch failed: " + ex.getMessage());
+                    return null;
+                });
+    }
+
+    @SubCommand(description = "Fetches mining risk of the player")
+    private void mining(GameProfile player) {
+        String url = SkyWarsToolsMod.SWT_API + "/overall?player=" + player.getName();
+        System.out.println("fetching " + url);
+        Fetch.getJsonAsync(url, OverallResponse.class)
+                .thenAccept(response -> Minecraft.getMinecraft().addScheduledTask(() -> {
+                    if (response == null || response.player == null) {
+                        ChatLib.chat("&cPlayer does not exist or is nicked.");
+                        return;
+                    }
+                    StatsPrint.formatMiningData(response);
+                }))
+                .exceptionally(ex -> {
+                    System.err.println("Fetch failed: " + ex.getMessage());
+                    return null;
+                });
+    }
+
 
     @SubCommand(description = "Tag a player")
     private void tag(GameProfile playerName, @Greedy String reasons) {

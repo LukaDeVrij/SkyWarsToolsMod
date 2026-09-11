@@ -69,7 +69,7 @@ public class SessionHUD extends BasicHud {
         lines.add("Session Kills: §" + data.kills + "§ | K/D: §" +
                 ((data.deaths == 0 ? (data.kills > 0 ? "∞" : "0.00") : String.format("%.2f", (double) data.kills / data.deaths))));
 
-        lines.add("Session EXP: §" + data.xpGained + "§ | EXP/H: §" +
+        lines.add("Session EXP: §" + Math.round(data.xpGained) + "§ | EXP/H: §" +
                 (data.time_played == 0 ? "∞" : Math.round(data.xpGained / (data.time_played / 3600.0))));
 
         lines.add("Session Heads: §" + data.heads + "§ | Heads: §" + baseline.heads);
